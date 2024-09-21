@@ -45,7 +45,7 @@ Goal: Write a function, cube, of type
 that cubes a parameter
 *)
 
-let cube x = failwith "Not Implemented";;
+let cube x = x * x * x;;
 
 (* 
    assert( cube 1 = 1);;
@@ -53,6 +53,9 @@ let cube x = failwith "Not Implemented";;
 *)
 (*
    Other test cases run:
+   assert( cube 2 = 8);;
+   assert( cube 4 = 64);;
+   assert( cube 5 = 125);;
 *)
 
 
@@ -63,7 +66,7 @@ Goal: Write a function, cubef, of type
 that cubes a parameter
 *)
 
-let cubef x = failwith "Not Implemented";;
+let cubef x = x *. x *. x;;
 
 (* 
    assert( cubef 1. = 1.);;
@@ -71,6 +74,9 @@ let cubef x = failwith "Not Implemented";;
 *)
 (*
    Other test cases run:
+   assert( cubef 2. = 8.);;
+   assert( cubef 4. = 64.);;
+   assert( cubef 5. = 125.);;
 *)
 
 
@@ -81,7 +87,7 @@ Goal: Write a function, increment, of type
 that increases an integer by 1
 *)
 
-let increment x = failwith "Not Implemented";;
+let increment x = x + 1;;
 
 (* 
    assert( increment 7 = 8);;
@@ -89,6 +95,8 @@ let increment x = failwith "Not Implemented";;
 *)
 (*
    Other test cases run:
+   assert( increment 50 = 51);;
+   assert( increment 201 = 202);;
 *)
 
 
@@ -107,6 +115,8 @@ let excited x = x ^ "!";;
 *)
 (*
    Other test cases run:
+   assert( excited "bwaa" = "bwaa!");;
+   assert( excited "meow" = "meow!");;
 *)
 
 
@@ -126,6 +136,8 @@ let less_than_5 x = x < 5;;
 *)
 (*
    Other test cases run:
+   assert( less_than_5 100 = false);;
+   assert( less_than_5 1 = true);;
 *)
 
 
@@ -144,6 +156,8 @@ let the_unit_value x = ();;
 *)
 (*
    Other test cases run:
+   assert( the_unit_value 301 = ());;
+   assert( the_unit_value 1 = ());;
 *)
 
 
@@ -164,6 +178,8 @@ let middle x = x > 5 && x < 10;;
 *)
 (*
    Other test cases run:
+   assert( middle 9 = true);;
+   assert( middle 182 = false);;
 *)
 
 
@@ -184,4 +200,6 @@ let middlef x = x > 5.0 && x < 10.0;;
 *)
 (*
    Other test cases run:
+   assert( middlef 9.0 = true);;
+   assert( midlef 128.0 = false);;
 *)
