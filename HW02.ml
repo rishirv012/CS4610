@@ -99,7 +99,7 @@ Goal: Write a function, excited, of type
 that adds an exclamation point on to the end of a string
 *)
 
-let excited x = failwith "Not Implemented";;
+let excited x = x ^ "!";;
 
 (* 
    assert( excited "hi" = "hi!");;
@@ -117,7 +117,7 @@ Goal: Write a function, less_than_5, of type
 that determines if a number is less than 5
 *)
 
-let less_than_5 x = failwith "Not Implemented";;
+let less_than_5 x = x < 5;;
 
 (* 
 	assert( less_than_5 3 = true);;
@@ -136,7 +136,7 @@ Goal: Write a function, the_unit_value, of type
 that always evaluates to the unit type
 *)
 
-let the_unit_value x = failwith "Not Implemented";;
+let the_unit_value x = ();;
 
 (* 
 	assert( the_unit_value 0 = ());;
@@ -154,7 +154,7 @@ Goal: Write a function, middle, of type
 that determines if a number is between 5 and 10 (exclusive) 
 *)
 
-let middle x = failwith "Not Implemented";;
+let middle x = x > 5 && x < 10;;
 
 (* 
 	assert( middle 0 = false);;
@@ -174,7 +174,7 @@ Goal: Write a function, middlef, of type
 that determines if a number is between 5 and 10 (exclusive) 
 *)
 
-let middlef x = failwith "Not Implemented";;
+let middlef x = x > 5.0 && x < 10.0;;
 
 (* 
 	assert( middlef 0.3 = false);;
