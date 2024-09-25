@@ -2,7 +2,12 @@
 
 HW02
  
-Team Members (computingID, Name): 
+Team Members (computingID, Name):  
+- pnh9yt, James Daniel
+- zsx4ey, Kathleen O'Donovan
+- npd7af, Rishi Vanga
+- skg3cn, Mary Ellen Schuster
+
 List of sources used (or 'none'): 
 
 HW02 consists of writing a number of OCaml functions. For each exercise below,
