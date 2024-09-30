@@ -140,7 +140,7 @@ assert (is_member (5, [1; 2; 3; 4]) = false);;
 
 (* --- Several of the remaining functions build on each other --- *)
 
-(* 6. 
+(* 6. FINISHED
  * Removes all the elements after the first occurrence of `e`
  * if it is in the list `list`, otherwise returns the empty list. 
  * You do not need to preserve the order of the items in the list.
@@ -150,6 +150,12 @@ assert (is_member (5, [1; 2; 3; 4]) = false);;
  *)
 
 let rec remove_after_e = function
+let rec remove_after_e (e,lst) = 
+  match lst with 
+  | [] -> []
+  | x :: xs ->
+    if x = e then [x]
+    else x :: remove_after_e(e, xs)
 
 assert (remove_after_e (3, [1; 2; 3; 4; 5]) = [3; 2; 1]);;
 assert (remove_after_e (1, [1; 2; 3]) = [1]);;
