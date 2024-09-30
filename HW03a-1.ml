@@ -121,14 +121,20 @@ let rec eval = function
 assert (eval (2.0, [1.0; 5.0; 3.0]) = 23.0);;
 assert (eval (1.0, [1.0; 5.0; 3.0]) = 9.0);;
 
-(* 5. 
+(* 5. FINISHED
  * Returns true if e is a member of list list.
  *
  * val is_member : 'a * 'a list -> bool
  *)
 
 let rec is_member = function
-
+let rec is_member (e, lst) = 
+  match lst with 
+  | [] -> false
+  | x::xs -> 
+      if x = e then true
+      else is_member (e, xs)
+  
 assert (is_member (2, [1; 2; 3; 4]) = true);;
 assert (is_member (5, [1; 2; 3; 4]) = false);;
 
