@@ -184,7 +184,10 @@ assert (remove_first (4, [1; 2; 3]) = [1; 2; 3]);;
  *)
 
 let rec remove_all= function
-
+  | (_,[]) -> []
+  |(a, x :: xs) -> match a == x with 
+    |true -> remove_all (a, xs)
+    |false -> let y =  remove_all (a, xs) in x :: y;;
 assert (remove_all (2, [1; 2; 3; 2]) = [1; 3]);;
 assert (remove_all (1, [1; 1; 1]) = []);;
 
