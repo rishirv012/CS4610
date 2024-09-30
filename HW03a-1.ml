@@ -51,7 +51,11 @@ problem below, but you'll need to create yourown test cases.
  *)
 
 let rec less = function
-
+  | (_,[]) -> []
+  | (a, x :: xs) -> match a > x with
+    | true -> let y = less (a,xs) in
+        x:: y 
+    | false -> less (a,xs);;
 assert (less (5, [1; 6; 3; 8; 2]) = [1; 3; 2]);;
 assert (less (3, [5; 1; 2; 4]) = [1; 2]);;
 
