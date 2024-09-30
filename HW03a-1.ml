@@ -168,7 +168,11 @@ assert (remove_after_e (1, [1; 2; 3]) = [1]);;
  *)
 
 let rec remove_first = function
-
+  |(_,[]) -> []
+  |(a, x :: xs) -> match a == x with 
+    |true -> xs
+    |false -> let y =  remove_first (a, xs) in x :: y;;
+    
 assert (remove_first (2, [1; 2; 3; 2]) = [1; 3; 2]);;
 assert (remove_first (4, [1; 2; 3]) = [1; 2; 3]);;
 
