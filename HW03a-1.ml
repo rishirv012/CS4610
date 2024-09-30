@@ -44,7 +44,7 @@ problem below, but you'll need to create yourown test cases.
 
 
 
-(*
+(*FINISHED
  * Return the list of all elements of a given list that are less than e.
  *  
  * val less : 'a * 'a list -> 'a list 
@@ -52,20 +52,27 @@ problem below, but you'll need to create yourown test cases.
 
 let rec less = function
   | (_,[]) -> []
-  | (a, x :: xs) -> match a > x with
+  | (a, x :: xs) -> match (a > x) with
     | true -> let y = less (a,xs) in
         x:: y 
     | false -> less (a,xs);;
 assert (less (5, [1; 6; 3; 8; 2]) = [1; 3; 2]);;
 assert (less (3, [5; 1; 2; 4]) = [1; 2]);;
 
-(*
+(* FINISHED
  * Write a tail-recursive version of `less`. Feel free to create a helper function.
  *  
  * val less_tail : 'a * 'a list -> 'a list 
  *)
 
 let rec less_tail = function
+let less_tail (a,lst) = 
+  let rec helper(acc, lst) = match lst with 
+    | [] -> List.rev acc 
+    | x :: xs -> if (x < a) then helper (x::acc, xs)
+                 else helper (acc, xs)
+  in 
+  helper ([], lst)
             
 assert (less_tail (5, [1; 6; 3; 8; 2]) = [1; 3; 2]);;
 assert (less_tail (3, [5; 1; 2; 4]) = [1; 2]);;
