@@ -204,6 +204,10 @@ assert (remove_all (1, [1; 1; 1]) = []);;
 let is_positive x = x > 0;;
 
 let rec remove_if_not = function
+|(_,[]) -> []
+  |(a, x::xs) -> match a (x) with
+    |true ->  let y = remove_if_not (a, xs)in x::y
+    |false -> remove_if_not (a, xs);;
 
 assert (remove_if_not (is_positive, [1; -2; 3; 0]) = [1; 3]);;
 assert (remove_if_not (is_positive, [-1; -2; -3]) = []);;
