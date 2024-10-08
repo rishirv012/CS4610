@@ -29,9 +29,9 @@ let subtract x y = match x,y with
 
 
 let rec postfix_calculator = function
-  |[] -> Int 0
+  |[] -> failwith "Invalid input"
   |`Num x::[] -> x
-  |x::y::[] -> Int 0
+  |x::y::[] -> failwith "Invalid input"
   |`Num x::`Num y::`Op z::xs ->
       let a = match z with
         |"*" -> `Num (multiply x y) 
