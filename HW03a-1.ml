@@ -39,9 +39,8 @@ binary 17;; (* 1 *)
 
 
 You are given the first line of each function and the function signatures for each
-problem below, but you'll need to create yourown test cases. 
+problem below, but you'll need to create your own test cases. 
 *)
-
 
 
 (*
@@ -52,7 +51,7 @@ problem below, but you'll need to create yourown test cases.
 
 let rec less = function
   | (_,[]) -> []
-  | (a, x :: xs) -> match a > x with
+  | (a, x :: xs) -> match (a > x) with
     | true -> let y = less (a,xs) in
         x:: y 
     | false -> less (a,xs);;
