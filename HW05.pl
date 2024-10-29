@@ -135,7 +135,7 @@ isDuped([X, X | T]) :- isDuped(T).
 
 % Test cases
 %?- isDuped([1, 1, 2, 2, 3, 3]). % Expected: true
-%?- isDuped([a, a, b, b]).       % Expected: true
+%?- isDuped([a, a, b, b]). % Expected: true
 
 
 /* Exercise 6 ------------------------------------------------
@@ -147,9 +147,15 @@ to compute the actual length, or do any integer arithmetic.)
 */
 
 %base case
-
+oddSize([_]).
 %recursive case
+oddSize([_, _ | T]) :- oddSize(T).
 
+%test cases
+% Test cases
+%?- oddSize([1, 2, 3]). % Expected: true
+%?- oddSize([a, b, c]). % Expected: true
+%?- oddSize([1, 2, 3, 4]) % Expected: fail
 
 
 /* Exercise 7 ------------------------------------------------
