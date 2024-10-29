@@ -56,7 +56,7 @@ third([_, _, Y | _], Y).
 ?- third([a, b, c], X). % c
 ?- third([1], X). % fail
 ?- third([], X). % fail
-?- third([1, 2], X). fail
+?- third([1, 2], X) % fail
 
 /* Exercise 2 ------------------------------------------------
 
@@ -66,7 +66,7 @@ X is a list of at least two elements, with the first element the same
 as the second element. (Hint: this can be expressed as a fact.)
 */
 
-firstPair([X, X| _], ). 
+firstPair([X, X| _]). 
 
 % Test cases
 ?- firstPair([1, 1, 3, 4]). % fail
@@ -109,7 +109,7 @@ dupList([1,3,2],Y).
 %base case
 dupList([], []). 
 %recursive case, repeat the head and continue with the tail 
-dupList([H | T], [H, H] | Y) :| dupList(T, Y). 
+dupList([H | T], [H, H | Y]) :- dupList(T, Y).
 
 %Test Cases
 ?- dupList([1, 3, 2], Y). % [1, 1, 3, 3, 2, 2]
