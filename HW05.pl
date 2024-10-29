@@ -127,7 +127,15 @@ That is, the predicate should succeed if and only if the first
 and second elements are equal, and the third and fourth elements
 are equal, and so on to the end of the list. It should fail for
 all odd-length lists.
-*/
+
+*/%base case
+isDuped([]).
+%recursive case
+isDuped([X, X | T]) :- isDuped(T).
+
+% Test cases
+%?- isDuped([1, 1, 2, 2, 3, 3]). % Expected: true
+%?- isDuped([a, a, b, b]).       % Expected: true
 
 
 /* Exercise 6 ------------------------------------------------
@@ -137,6 +145,11 @@ Define a predicate, oddSize, so that oddSize(X) says that X is
 a list whose length is an odd number. (Hint: You do not need
 to compute the actual length, or do any integer arithmetic.)
 */
+
+%base case
+
+%recursive case
+
 
 
 /* Exercise 7 ------------------------------------------------
