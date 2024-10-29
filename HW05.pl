@@ -1,6 +1,6 @@
 /* *********** HW05 ***********
 Student names: i.e. Tony Bennett  - Mary Ellen Schuster, Rishi Vanga, James, Kat O'Donovan
-Student IDs: i.e. mst3k  - skg3cn, 
+Student IDs: i.e. mst3k  - skg3cn, npd7af
 Sources: - any websites, books, etc. other than course slides
 
 For each exercise below, create a Prolog program that will perform the
