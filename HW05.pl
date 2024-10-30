@@ -166,6 +166,17 @@ is a list whose length is an even number. (Hint: You do not
 need to compute the actual length, or do any integer arithmetic.)
 */
 
+%base case
+evenSize([]).
+%recursive case
+evenSize([_, _ | T]) :- evenSize(T).
+
+%test cases
+% Test cases
+%?- evenSize([1, 2, 3, 4]). % Expected: true
+%?- evenSize([a, b, c]). % Expected: false
+%?- evenSize([1, 2]) % Expected: true
+
 
 /* Exercise 8 ------------------------------------------------
 
