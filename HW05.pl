@@ -190,6 +190,18 @@ prefix(X,[l,2,3]), it should find all the prefixes of the
 list [1,2,3].
 */
 
+% Base case: an empty list is a prefix of any list.
+prefix([], _).
+
+% Recursive case:
+prefix([H|T], [H|Y]) :-  prefix(T, Y).
+
+%test cases
+% Test cases
+%?- prefix([1, 2], [1,2,3]). % Expected: true
+%?- prefix([a],[a]). % Expected: true
+%?- prefix([1,2],[1,3,2]) % Expected: false
+
 
 
 /* --- Some testing that may be helpful to you ---------------- 
