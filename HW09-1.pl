@@ -1,3 +1,282 @@
+/*ADDED FEATURE: 
+ * You can pickup a sword in the maze and use it to kill the ogre.
+ * if you come face to face with the ogre while holding the sword you kill it rather
+ * than dying
+*/
+/* 
+---RUN THROUGH #1---
+This is an adventure game.
+Legal moves are (l)eft, (r)ight, or (f)orward.
+
+You currently are holding nothing
+You are in a pleasant valley, with a trail ahead.
+Next move --
+f
+---- Moving forward ----
+You currently are holding nothing
+You are on a path, with ravines on both sides.
+Next move --
+f
+---- Moving forward ----
+You currently are holding nothing
+You are at a fork in the path.
+Next move --
+l
+---- Moving left ----
+You currently are holding nothing
+You are in a maze of twisty trails, all alike.
+Next move --
+l
+---- Moving left ----
+There is a sword here. (p)ickup
+You currently are holding nothing
+You are in a maze of twisty trails, all alike.
+Next move --
+p
+---- Picking Up sword ----
+You are currently holding a sword. (d)rop
+You are in a maze of twisty trails, all alike.
+Next move --
+l
+---- Moving left ----
+You are currently holding a sword. (d)rop
+You are in a maze of twisty trails, all alike.
+Next move --
+r
+---- Moving right ----
+You come face-to-face with a horrible, angry ogre.
+You slay it with your sword.
+You are currently holding a sword. (d)rop
+You are in a maze of twisty trails, all alike.
+Next move --
+d
+---- dropping sword ----
+There is a sword here. (p)ickup
+You currently are holding nothing
+You are in a maze of twisty trails, all alike.
+Next move --
+l
+---- Moving left ----
+You currently are holding nothing
+You are in a maze of twisty trails, all alike.
+Next move --
+r
+---- Moving right ----
+There is a sword here. (p)ickup
+You currently are holding nothing
+You are in a maze of twisty trails, all alike.
+Next move --
+r
+---- Moving right ----
+There is a sword here. (p)ickup
+You currently are holding nothing
+You are in a maze of twisty trails, all alike.
+Next move --
+r
+---- Moving right ----
+There is a sword here. (p)ickup
+You currently are holding nothing
+You are in a maze of twisty trails, all alike.
+Next move --
+l
+---- Moving left ----
+You currently are holding nothing
+You are in a maze of twisty trails, all alike.
+Next move --
+l
+---- Moving left ----
+You currently are holding nothing
+You are in a maze of twisty trails, all alike.
+Next move --
+r
+---- Moving right ----
+There is a key here. (p)ickup
+You currently are holding nothing
+You are in a maze of twisty trails, all alike.
+Next move --
+p
+---- Picking Up key ----
+You are currently holding a key. (d)rop
+You are in a maze of twisty trails, all alike.
+Next move --
+l
+---- Moving left ----
+You are currently holding a key. (d)rop
+You are at a fork in the path.
+Next move --
+r
+---- Moving right ----
+You must unlock the gate. (u)nlock
+You are currently holding a key. (d)rop
+You are standing infront of a gate.
+Next move --
+u
+***unlocking gate***
+You are currently holding a key. (d)rop
+You are standing infront of an unlocked gate.
+Next move --
+d
+---- dropping key ----
+There is a key here. (p)ickup
+You currently are holding nothing
+You are standing infront of an unlocked gate.
+Next move --
+p
+---- Picking Up key ----
+You are currently holding a key. (d)rop
+You are standing infront of an unlocked gate.
+Next move --
+d
+---- dropping key ----
+There is a key here. (p)ickup
+You currently are holding nothing
+You are standing infront of an unlocked gate.
+Next move --
+f
+---- Moving forward ----
+There is a treasure here.
+Congratulations, you win!
+Thanks for playing.
+1true
+
+---RUN THROUGH #2---
+
+This is an adventure game.
+Legal moves are (l)eft, (r)ight, or (f)orward.
+
+You currently are holding nothing
+You are in a pleasant valley, with a trail ahead.
+Next move --
+f
+---- Moving forward ----
+You currently are holding nothing
+You are on a path, with ravines on both sides.
+Next move --
+f
+---- Moving forward ----
+You currently are holding nothing
+You are at a fork in the path.
+Next move --
+l
+---- Moving left ----
+You currently are holding nothing
+You are in a maze of twisty trails, all alike.
+Next move --
+r
+---- Moving right ----
+You come face-to-face with a horrible, angry ogre.
+The ogre kills you. Your story ends here.
+Thanks for playing.
+1true
+
+
+---RUN THROUGH #3---
+This is an adventure game.
+Legal moves are (l)eft, (r)ight, or (f)orward.
+
+You currently are holding nothing
+You are in a pleasant valley, with a trail ahead.
+Next move --
+f
+---- Moving forward ----
+You currently are holding nothing
+You are on a path, with ravines on both sides.
+Next move --
+f
+---- Moving forward ----
+You currently are holding nothing
+You are at a fork in the path.
+Next move --
+l
+---- Moving left ----
+You currently are holding nothing
+You are in a maze of twisty trails, all alike.
+Next move --
+l
+---- Moving left ----
+There is a sword here. (p)ickup
+You currently are holding nothing
+You are in a maze of twisty trails, all alike.
+Next move --
+p
+---- Picking Up sword ----
+You are currently holding a sword. (d)rop
+You are in a maze of twisty trails, all alike.
+Next move --
+l
+---- Moving left ----
+You are currently holding a sword. (d)rop
+You are in a maze of twisty trails, all alike.
+Next move --
+r
+---- Moving right ----
+You come face-to-face with a horrible, angry ogre.
+You slay it with your sword.
+You are currently holding a sword. (d)rop
+You are in a maze of twisty trails, all alike.
+Next move --
+d
+---- dropping sword ----
+There is a sword here. (p)ickup
+You currently are holding nothing
+You are in a maze of twisty trails, all alike.
+Next move --
+l
+---- Moving left ----
+You currently are holding nothing
+You are in a maze of twisty trails, all alike.
+Next move --
+r
+---- Moving right ----
+There is a sword here. (p)ickup
+You currently are holding nothing
+You are in a maze of twisty trails, all alike.
+Next move --
+l
+---- Moving left ----
+You currently are holding nothing
+You are in a maze of twisty trails, all alike.
+Next move --
+l
+---- Moving left ----
+You currently are holding nothing
+You are in a maze of twisty trails, all alike.
+Next move --
+r
+---- Moving right ----
+There is a key here. (p)ickup
+You currently are holding nothing
+You are in a maze of twisty trails, all alike.
+Next move --
+p
+---- Picking Up key ----
+You are currently holding a key. (d)rop
+You are in a maze of twisty trails, all alike.
+Next move --
+l
+---- Moving left ----
+You are currently holding a key. (d)rop
+You are at a fork in the path.
+Next move --
+r
+---- Moving right ----
+You must unlock the gate. (u)nlock
+You are currently holding a key. (d)rop
+You are standing infront of a gate.
+Next move --
+u
+***unlocking gate***
+You are currently holding a key. (d)rop
+You are standing infront of an unlocked gate.
+Next move --
+f
+---- Moving forward ----
+You carried the key through the gate!!!
+You have been struck by lighting
+You are now dead. Game Over.
+Thanks for playing.
+1true
+*/
 /* HW09
 
   In class we have done a walkthrough of a simple text-based adventure
@@ -72,7 +351,8 @@ description(maze(_),'You are in a maze of twisty trails, all alike.').
 description(mountaintop,'You are on the mountaintop.').
 description(gate, 'You are standing infront of a gate.').
 description(unlockedGate, 'You are standing infront of an unlocked gate.').
-holding(hiddenKey, 'You are currently holding a key. (d)rop').
+holding(key, 'You are currently holding a key. (d)rop').
+holding(sword, 'You are currently holding a sword. (d)rop').
 holding(nothing, 'You currently are holding nothing').
 
 
@@ -133,35 +413,36 @@ move(Dir) :-
   /*report,*/
   !.
 /*pick objects that are near you, can only hold one object at a time*/
-move(pickup) :-
-    at(key, Loc),
+move(pickup) :-   
     has(you, nothing),
     near(you, O),
+    at(O, Loc),
     retract(has(you, nothing)),
     assert(has(you, O)),
     write('---- Picking Up '),write(O),write(' ----'),nl,
     retract(near(you, O)),
     assert(near(you, nothing)),
-    retract(at(key, Loc)),
+    retract(at(O, Loc)),
      /*report,*/
     !.
 /*can drop item you are carrying at any time*/
 move(drop) :-
     at(you,Loc),
     not(has(you, nothing)),
+    near(you,nothing), /*cannot be near an item if you are going to drop*/
     has(you, O),
     retract(has(you, O)),
     assert(has(you, nothing)),
     write('---- dropping '),write(O),write(' ----'),nl,
     retract(near(you, nothing)),
     assert(near(you, O)),   
-    assert(at(key, Loc)),
+    assert(at(O, Loc)),
      /*report,*/
     !.
 
 move(unlock) :-
     at(you, gate),
-    has(you, hiddenKey),
+    has(you, key),
     gateStatus(locked),
     write('***unlocking gate***'),nl,
     retract(gateStatus(locked)),
@@ -179,8 +460,15 @@ move(X) :-
   write('"'),write(X),write('"'),write(' is not a legal move.'),nl,
   write('Legal moves are (l)eft, (r)ight, or (f)orward.'),nl,
   report.
-
-
+/*if you have the sword you kill the ogre*/
+ogre :-
+  at(ogre,Loc),
+  at(you,Loc),
+  has(you, sword),
+  write('You come face-to-face with a horrible, angry ogre.'),nl,
+  write('You slay it with your sword.'),nl,
+  retract(at(ogre,Loc)),
+  !.
 /*
   If you and the ogre are at the same place, it kills you.
 */
@@ -203,7 +491,7 @@ ogre.
 treasure :-
   at(treasure,Loc),
   at(you,Loc),
-  has(you, hiddenKey),
+  has(you, key),
   write('You carried the key through the gate!!!'),nl,
   write('You have been struck by lighting'),nl,
   write('You are now dead. Game Over.'),nl,
@@ -230,24 +518,31 @@ treasure.
 
 /*if you have the key you can't pick it up again*/
 key :-
-  has(you,hiddenKey),
+  has(you,key),
   at(key,Loc),
   at(you,Loc),
   !.
 /*in same place as key but dont currently possess it so you can pick it up*/
 key :-
   at(key,Loc),
-  at(you,Loc),
-  write('There is a key here. (p)ickup'),nl,
+  at(you,Loc),  
   retract(near(you, nothing)),
-  assert(near(you, hiddenKey)),
+  assert(near(you, key)),
+  write('There is a key here. (p)ickup'),nl,
+  !.
+
+key :-
+  at(key,Loc),
+  at(you,Loc),  
+  assert(near(you, key)),
+  write('There is a key here. (p)ickup'),nl,
   !.
 /*not in the same location as key so not near key*/
 key :-
   at(key,Loc),
   not(at(you,Loc)),
-  near(you, hiddenKey),
-  retract(near(you, hiddenKey)),
+  near(you, key),
+  retract(near(you, key)),
   assert(near(you, nothing)),
   !.
 /*
@@ -257,17 +552,51 @@ key :-
 key.
 
 
+
+/*
+  If you and the sword are at the same place, you can pick it up but only if you havne't already.
+*/
+
+/*if you have the sword you can't pick it up again*/
+sword :-
+  has(you,sword),
+  at(sword,Loc),
+  at(you,Loc),
+  !.
+/*in same place as key but dont currently possess it so you can pick it up*/
+sword :-
+  at(sword,Loc),
+  at(you,Loc),
+  write('There is a sword here. (p)ickup'),nl,
+  retract(near(you, nothing)),
+  assert(near(you, sword)),
+  !.
+/*not in the same location as key so not near key*/
+sword :-
+  at(sword,Loc),
+  not(at(you,Loc)),
+  near(you, sword),
+  retract(near(you, sword)),
+  assert(near(you, nothing)),
+  !.
+/*
+  But if you and the key are not in the same place, nothing
+  happens.
+*/
+sword.
+
+
 /*
   If you are at the gate, you must unlock it.
 */
 gate :-
   at(you,gate),
-  has(you, hiddenKey),
+  has(you, key),
   write('You must unlock the gate. (u)nlock'),nl,  
   !.
 gate :-
   at(you,gate),
-  near(you, hiddenKey),
+  near(you, key),
   write('You have to pick up the key to unlock the gate'),nl,
   !.
 gate :-
@@ -316,7 +645,7 @@ main :-
   cliff,
   key,
   gate,
-  
+  sword,
   main.
 
 /*
@@ -330,6 +659,7 @@ go :-
   assert(near(you, nothing)),
   assert(at(ogre,maze(3))),
   assert(at(key,maze(2))),
+  assert(at(sword,maze(1))),
   assert(gateStatus(locked)),
   assert(at(treasure,mountaintop)),
   write('This is an adventure game.'),nl,
