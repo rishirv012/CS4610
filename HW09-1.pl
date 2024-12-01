@@ -54,6 +54,13 @@
 /* Allow asserts and retracts for the predicate at */
 :- dynamic at/2.
 
+:- dynamic has/2.
+
+:- dynamic near/2.
+
+:- dynamic gateStatus/1.
+    
+
 /*
   First, text descriptions of all the locations in the game.
 */
@@ -63,13 +70,22 @@ description(cliff,'You are teetering on the edge of a cliff.').
 description(fork,'You are at a fork in the path.').
 description(maze(_),'You are in a maze of twisty trails, all alike.').
 description(mountaintop,'You are on the mountaintop.').
+description(gate, 'You are standing infront of a gate.').
+description(unlockedGate, 'You are standing infront of an unlocked gate.').
+holding(hiddenKey, 'You are currently holding a key. (d)rop').
+holding(nothing, 'You currently are holding nothing').
+
+
 
 /*
   report prints the description of your current location.
 */
 report :-
   at(you,X),
+  has(you, O),
   description(X,Y),
+  holding(O,Z),
+  write(Z), nl,
   write(Y), nl.
 
 /*
@@ -83,7 +99,8 @@ connect(path,right,cliff).
 connect(path,left,cliff).
 connect(path,forward,fork).
 connect(fork,left,maze(0)).
-connect(fork,right,mountaintop).
+connect(fork,right,gate).
+connect(unlockedGate,forward,mountaintop).
 connect(maze(0),left,maze(1)).
 connect(maze(0),right,maze(3)).
 connect(maze(1),left,maze(0)).
@@ -99,6 +116,10 @@ connect(maze(3),right,maze(3)).
 move(f) :- move(forward).
 move(l) :- move(left).
 move(r) :- move(right).
+
+move(p) :- move(pickup).
+move(d) :- move(drop).
+move(u) :- move(unlock).
 /*
   move(Dir) moves you in direction Dir, then prints the description of
   your new location.
@@ -109,8 +130,47 @@ move(Dir) :-
   write('---- Moving '),write(Dir),write(' ----'),nl,
   retract(at(you,Loc)),
   assert(at(you,Next)),
-  report,
+  /*report,*/
   !.
+/*pick objects that are near you, can only hold one object at a time*/
+move(pickup) :-
+    at(key, Loc),
+    has(you, nothing),
+    near(you, O),
+    retract(has(you, nothing)),
+    assert(has(you, O)),
+    write('---- Picking Up '),write(O),write(' ----'),nl,
+    retract(near(you, O)),
+    assert(near(you, nothing)),
+    retract(at(key, Loc)),
+     /*report,*/
+    !.
+/*can drop item you are carrying at any time*/
+move(drop) :-
+    at(you,Loc),
+    not(has(you, nothing)),
+    has(you, O),
+    retract(has(you, O)),
+    assert(has(you, nothing)),
+    write('---- dropping '),write(O),write(' ----'),nl,
+    retract(near(you, nothing)),
+    assert(near(you, O)),   
+    assert(at(key, Loc)),
+     /*report,*/
+    !.
+
+move(unlock) :-
+    at(you, gate),
+    has(you, hiddenKey),
+    gateStatus(locked),
+    write('***unlocking gate***'),nl,
+    retract(gateStatus(locked)),
+    assert(gateStatus(unlocked)),
+    retract(at(you, gate)),
+    assert(at(you,unlockedGate)),
+     /*report,*/
+    !.
+    
 /*
   But if the argument was not a legal direction, print an error message
   and don't move.
@@ -119,6 +179,7 @@ move(X) :-
   write('"'),write(X),write('"'),write(' is not a legal move.'),nl,
   write('Legal moves are (l)eft, (r)ight, or (f)orward.'),nl,
   report.
+
 
 /*
   If you and the ogre are at the same place, it kills you.
@@ -137,8 +198,18 @@ ogre :-
 ogre.
 
 /*
-  If you and the treasure are at the same place, you win.
+  If you and the treasure are at the same place, you win but only if you dont have the key.
 */
+treasure :-
+  at(treasure,Loc),
+  at(you,Loc),
+  has(you, hiddenKey),
+  write('You carried the key through the gate!!!'),nl,
+  write('You have been struck by lighting'),nl,
+  write('You are now dead. Game Over.'),nl,
+  retract(at(you,Loc)),
+  assert(at(you,done)),
+  !.
 treasure :-
   at(treasure,Loc),
   at(you,Loc),
@@ -152,6 +223,63 @@ treasure :-
   happens.
 */
 treasure.
+
+/*
+  If you and the key are at the same place, you can pick it up but only if you havne't already.
+*/
+
+/*if you have the key you can't pick it up again*/
+key :-
+  has(you,hiddenKey),
+  at(key,Loc),
+  at(you,Loc),
+  !.
+/*in same place as key but dont currently possess it so you can pick it up*/
+key :-
+  at(key,Loc),
+  at(you,Loc),
+  write('There is a key here. (p)ickup'),nl,
+  retract(near(you, nothing)),
+  assert(near(you, hiddenKey)),
+  !.
+/*not in the same location as key so not near key*/
+key :-
+  at(key,Loc),
+  not(at(you,Loc)),
+  near(you, hiddenKey),
+  retract(near(you, hiddenKey)),
+  assert(near(you, nothing)),
+  !.
+/*
+  But if you and the key are not in the same place, nothing
+  happens.
+*/
+key.
+
+
+/*
+  If you are at the gate, you must unlock it.
+*/
+gate :-
+  at(you,gate),
+  has(you, hiddenKey),
+  write('You must unlock the gate. (u)nlock'),nl,  
+  !.
+gate :-
+  at(you,gate),
+  near(you, hiddenKey),
+  write('You have to pick up the key to unlock the gate'),nl,
+  !.
+gate :-
+  at(you,gate),
+  write('You dont have a key you cannot unlock the gate'),nl,
+  retract(at(you,gate)),
+  assert(at(you,done)),
+  !.
+/*
+  But if you are not at the gate nothing happens.
+*/
+gate.
 
 /*
   If you are at the cliff, you fall off and die.
@@ -179,12 +307,16 @@ main :-
   all our special behaviors. Then repeat.
 */
 main :-
+  report,
   write('Next move -- '),
   read(Move),
   call(move(Move)),
   ogre,
   treasure,
   cliff,
+  key,
+  gate,
+  
   main.
 
 /*
@@ -194,10 +326,13 @@ main :-
 go :-
   retractall(at(_,_)), % clean up from previous runs if needed
   assert(at(you,valley)),
+  assert(has(you, nothing)),
+  assert(near(you, nothing)),
   assert(at(ogre,maze(3))),
+  assert(at(key,maze(2))),
+  assert(gateStatus(locked)),
   assert(at(treasure,mountaintop)),
   write('This is an adventure game.'),nl,
   write('Legal moves are (l)eft, (r)ight, or (f)orward.'),nl,nl,
-  report,
   main,
   !.
